@@ -8,7 +8,7 @@ Fixie is an AI-powered web app that reviews zipped Python projects and provides 
 
 | Upload Interface | Review Output |
 |------------------|----------------|
-| ![Upload Screenshot](screenshots/upload.png) | ![Suggestions Screenshot](screenshots/suggestions.png) |
+| ![Upload Screenshot](upload.png) | ![Suggestions Screenshot](suggestions.png) |
 
 
 ---
