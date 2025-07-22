@@ -3,3 +3,4 @@ uploaded_folders/
 .env
 venv/
 *.zip
+.env 
