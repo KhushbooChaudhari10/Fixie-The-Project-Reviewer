@@ -1,0 +1,5 @@
+__pycache__/
+uploaded_folders/
+.env
+venv/
+*.zip

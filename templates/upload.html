@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fixie - Upload Python Zip</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f5f8fa;
+      color: #333;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #0077cc;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="file"] {
+      margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #005fa3;
+    }
+
+    #response-box {
+      max-height: 500px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      background-color: #f0f4f8;
+      border: 1px solid #ccc;
+      padding: 20px;
+      font-family: Consolas, monospace;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    code {
+      display: block;
+      background-color: #eef;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #222;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Upload Your Python Project (ZIP)</h2>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="zipfile" accept=".zip" required><br>
+      <input type="submit" value="Upload & Analyze">
+    </form>
+
+    {% if response %}
+      <h3>✅ Uploaded and extracted to:</h3>
+      <code>{{ folder }}</code>
+
+      <h3>🧠 Suggestions from Fixie:</h3>
+      <div id="response-box">
+        {{ response | safe }}
+      </div>
+    {% else %}
+      <div style="color: red;">
+        ⚠️ No suggestions received. Please check logs or try again.
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="footer">
+    Powered by Fixie & Hugging Face · Flask App
+  </div>
+</body>
+</html>
